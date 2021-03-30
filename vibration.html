@@ -62,7 +62,7 @@
       });
       // サーバーからtrueを受信したら、全クライアントのスマホを振動させる
       socket.on('s2c-spk', function(spk) {
-        if(spk && btnPusher)alert('OK');//window.navigator.vibrate([200]);
+        if(spk && NotBtnPusher)alert('OK');//window.navigator.vibrate([200]);
         NotBtnPusher = true;
       });
   </script>
