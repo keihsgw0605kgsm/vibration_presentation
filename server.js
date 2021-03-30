@@ -6,7 +6,7 @@ var io = require('socket.io')(http);
 // ポート番号を指定する
 var port = process.env.PORT || 3000;
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + "public"));
 
 // クライアント側のリクエストに対して、画面(htmlファイル)を返す
 app.get('/', function(req, res){
@@ -17,10 +17,6 @@ app.get('/', function(req, res){
 http.listen(port, function(){
   console.log('listening on *:' + port);
 });
-
-
-
-var messages = [];
 
 io.on('connection', function(socket){
   // クライアント側にボタンが押されたこと(spk=true)送る（emit）
