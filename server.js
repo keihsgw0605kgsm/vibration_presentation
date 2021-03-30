@@ -7,7 +7,7 @@ var port = process.env.PORT || 3000;
 
 // クライアント側のリクエストに対して、画面(htmlファイル)を返す
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/chat.html');
+  res.sendFile(__dirname + '/vibration.html');
 });
 
 // httpサーバーを立てる
