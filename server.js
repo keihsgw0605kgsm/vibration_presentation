@@ -20,13 +20,8 @@ http.listen(port, function(){
 var messages = [];
 
 io.on('connection', function(socket){
-
-  // サーバー側のメッセージリストをクライアント側に送る（emit）
-  //socket.emit('init-chat', messages);
-  // クライアント側から送られたメッセージを受け取り、全クライアントに送る（emit）
+  // クライアント側にボタンが押されたこと(spk=true)送る（emit）
   socket.on('c2s-spk', function(spk) {
-      //var newMessage = msg;
-      //messages.push(newMessage);
       io.emit('s2c-spk', spk);
   });
 
