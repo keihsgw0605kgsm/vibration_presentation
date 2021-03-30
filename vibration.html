@@ -27,13 +27,10 @@
       var socket = io();
       var app = new Vue({
         el: '#webConf',
-        data: {
-            speak: true
-        },
         methods: {
             // 送信ボタンが押されたら、クライアントからサーバーにメッセージを送信
             speak: function() {
-            socket.emit('c2s-spk', this.speak);
+            socket.emit('c2s-spk', true);
             return false;
             }
         },
@@ -43,7 +40,7 @@
         //console.log(msg);
         //app.messages.push(msg);
         //window.scrollTo(0, document.body.scrollHeight);
-        alert('OK');
+        if(spk)alert('OK');
         //window.navigator.vibrate([200]);
       });
       // 元々あるメッセージを表示する
