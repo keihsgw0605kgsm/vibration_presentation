@@ -1,1 +1,1 @@
-<?php include("vibration.html"); ?>
+<?php include("./static/vibration.html"); ?>
