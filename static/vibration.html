@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" href="css/style.css">-->
+    <style>
+      body { background-color: #ffffff;}
+      h1 { 
+        background-color: #eeeeee;
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 0px;
+        width: 100%;
+        padding: 10px;
+        line-height: inherit;
+      }
+      .speak-btn { 
+          height: 200px; 
+          width: 200px; 
+          background: rgb(130, 224, 255); 
+          border: none; 
+          margin: 300px 50px 100px 50px;
+        }
+      .center {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <title>振動提示</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <header>
+      <h1 class="center">振動提示</h1>
+    </header>
+    <!--<hr>-->
+    <div class="center">
+      <main id="webConf">
+        <input type="image" src="./static/img/speaking-head.png" class="speak-btn" v-on:click="speak" onclick='clickBtn()'>
+      </main>
+    </div>
+</body>
+  <script>
+      var NotBtnPusher = true;
+      function clickBtn(){
+        NotBtnPusher = false;
+      }
+
+      var socket = io();
+      var app = new Vue({
+        el: '#webConf',
+        methods: {
+            // ボタンが押されたら、クライアントからサーバーにtrueを送信
+            speak: function() {
+            socket.emit('c2s-spk', true);
+            return false;
+            }
+        },
+      });
+      // サーバーからtrueを受信したら、全クライアントのスマホを振動させる
+      socket.on('s2c-spk', function(spk) {
+        if(spk && NotBtnPusher)alert('OK');//window.navigator.vibrate([200]);
+        NotBtnPusher = true;
+      });
+  </script>
+</html>
