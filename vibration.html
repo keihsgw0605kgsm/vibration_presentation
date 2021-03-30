@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <!--<link rel="stylesheet" href="css/style.css">-->
     <style>
-      body { font: 16px; background-color: #ffffff;}
-      h2 {padding: 10px}
-      .speak-btn { height: 100%; width: 200px; background: rgb(130, 224, 255); border: none; margin: 200%; }
-      .center { display: flex; flex-direction: row; justify-content: center; align-items: center; }
+      body { background-color: #ffffff;}
+      h1 { 
+        background-color: #eeeeee;
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 0px;
+        width: 100%;
+        padding: 10px;
+        line-height: inherit;
+      }
+      .speak-btn { 
+          height: 200px; 
+          width: 200px; 
+          background: rgb(130, 224, 255); 
+          border: none; 
+          margin: 300px 50px 100px 50px;
+        }
+      .center {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
     </style>
     <title>振動提示</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -15,14 +34,12 @@
 </head>
 <body>
     <header>
-      <div class="center">
-        <h2>振動提示</h2>
-      </div>
+      <h1 class="center">振動提示</h1>
     </header>
-    <hr>
+    <!--<hr>-->
     <div class="center">
       <main id="webConf">
-        <button class="speak-btn" v-on:click="speak" onclick='clickBtn()'>話す</button>
+        <input type="image" src="./img/speaking-head.png" class="speak-btn" v-on:click="speak" onclick='clickBtn()'>
       </main>
     </div>
 </body>
