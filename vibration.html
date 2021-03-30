@@ -6,7 +6,7 @@
     <style>
       body { font: 16px; background-color: #ffffff;}
       h2 {padding: 10px}
-      .speak-btn { height: 100%; width: 200px; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      .speak-btn { height: 100%; width: 200px; background: rgb(130, 224, 255); border: none; margin: 200%; }
       .center { display: flex; flex-direction: row; justify-content: center; align-items: center; }
     </style>
     <title>振動提示</title>
@@ -22,11 +22,16 @@
     <hr>
     <div class="center">
       <main id="webConf">
-        <button class="speak-btn" v-on:click="speak">送信</button>
+        <button class="speak-btn" v-on:click="speak" onclick='clickBtn()'>話す</button>
       </main>
     </div>
 </body>
   <script>
+      var btnPusher = false;
+      function clickBtn(){
+        btnPusher = true;
+      }
+
       var socket = io();
       var app = new Vue({
         el: '#webConf',
@@ -40,7 +45,8 @@
       });
       // サーバーからtrueを受信したら、全クライアントのスマホを振動させる
       socket.on('s2c-spk', function(spk) {
-        if(spk)window.navigator.vibrate([200]);
+        if(spk && btnPusher)alert('OK');//window.navigator.vibrate([200]);
+        btnPusher = false;
       });
   </script>
 </html>
