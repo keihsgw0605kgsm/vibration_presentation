@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>振動提示</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="cordova-1.7.0.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
@@ -49,7 +50,10 @@
       });
       // サーバーからtrueを受信したら、全クライアントのスマホを振動させる
       socket.on('s2c-spk', function(spk) {
-        if(spk && NotBtnPusher && document.presented_vib.vib_on.checked)window.navigator.vibrate([200]);
+        if(spk && NotBtnPusher && document.presented_vib.vib_on.checked){
+          //window.navigator.vibrate([200]);
+          navigator.notification.vibrate(200);
+        }
         NotBtnPusher = true;
       });
   </script>
