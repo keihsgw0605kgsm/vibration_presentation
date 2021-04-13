@@ -27,7 +27,7 @@ h1 {
     align-items: center;
 }
 
-/*fieldset {
+fieldset {
     border: none;
     padding: 0;
     margin: 20px 0px 0px 0px;
@@ -62,4 +62,4 @@ h1 {
     outline-offset: -2px;
     outline-style: auto;
     outline-width: 5px;
-}*/
+}
