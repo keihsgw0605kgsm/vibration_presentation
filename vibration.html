@@ -12,6 +12,18 @@
       <h1 class="center">振動提示</h1>
     </header>
     <!--<hr>-->
+    <form name="presented_vib">
+      <fieldset>
+        <input id="vib_off" class="radio-inline__input" type="radio" name="accessible_radio" value="vib-off" checked="checked"/>
+        <label class="radio-inline__label" for="vib-off">
+          振動なし
+        </label>
+        <input id="vib_on" class="radio-inline__input" type="radio" name="accessible_radio" value="vib-on"/>
+        <label class="radio-inline__label" for="vib-on">
+          振動あり
+        </label>
+      </fieldset>
+    </form>
     <div class="center">
       <main id="webConf">
         <input type="image" src="img/speaking-head.png" class="speak-btn" v-on:click="speak" onclick='clickBtn()'>
@@ -37,7 +49,7 @@
       });
       // サーバーからtrueを受信したら、全クライアントのスマホを振動させる
       socket.on('s2c-spk', function(spk) {
-        if(spk && NotBtnPusher)window.navigator.vibrate([200]);
+        if(spk && NotBtnPusher && document.presented_vib.vib_on.checked)window.navigator.vibrate([200]);
         NotBtnPusher = true;
       });
   </script>
