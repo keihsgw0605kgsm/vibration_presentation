@@ -1,4 +1,4 @@
-body {
+body { 
     background-color: #ffffff;
 }
 
@@ -17,7 +17,7 @@ h1 {
     width: 200px; 
     background: rgb(130, 224, 255); 
     border: none; 
-    margin: 300px 50px 100px 50px;
+    margin: 160px 50px 100px 50px;
 }
 
 .center {
@@ -27,7 +27,7 @@ h1 {
     align-items: center;
 }
 
-fieldset {
+/*fieldset {
     border: none;
     padding: 0;
     margin: 20px 0px 0px 0px;
@@ -62,4 +62,4 @@ fieldset {
     outline-offset: -2px;
     outline-style: auto;
     outline-width: 5px;
-}
+}*/
