@@ -64,7 +64,7 @@
       socket.on('s2c-spk', function(spk) {
         if(spk && NotBtnPusher && document.presented_vib.vib_on.checked){
           //window.navigator.vibrate([200]);
-          navigator.notification.vibrate(200);
+          window.navigator.notification.vibrate(200);
         }
         NotBtnPusher = true;
       });
