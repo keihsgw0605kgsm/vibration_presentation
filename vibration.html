@@ -5,20 +5,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>振動提示</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script type="text/javascript" charset="utf-8" src="phonegap.0.9.4.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-      // Cordova の読み込み完了まで待機
-      //
-      document.addEventListener("deviceready", onDeviceReady, false);
-  
-      // Cordova 準備完了
-      //
-      function onDeviceReady() {
-          // 処理なし
-      }
-    </script>
 </head>
 <body>
     <header>
@@ -63,8 +50,7 @@
       // サーバーからtrueを受信したら、全クライアントのスマホを振動させる
       socket.on('s2c-spk', function(spk) {
         if(spk && NotBtnPusher && document.presented_vib.vib_on.checked){
-          //window.navigator.vibrate([200]);
-          window.navigator.notification.vibrate(200);
+          window.navigator.vibrate([200]);
         }
         NotBtnPusher = true;
       });
